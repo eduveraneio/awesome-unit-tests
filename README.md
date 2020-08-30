@@ -7,6 +7,7 @@ https://github.com/google/guava
 ##### Graph
 https://github.com/google/guava/blob/master/guava-tests/test/com/google/common/graph/ValueGraphTest.java
 
+```java
 @Test
   public void directedGraph() {
     graph = ValueGraphBuilder.directed().allowsSelfLoops(true).build();
@@ -30,3 +31,4 @@ https://github.com/google/guava/blob/master/guava-tests/test/com/google/common/g
     assertThat(toString).contains("valueC");
     assertThat(toString).contains("valueD");
   }
+```
