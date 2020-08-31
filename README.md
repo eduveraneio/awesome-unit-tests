@@ -28,5 +28,6 @@ Repositório piloto para Testes de Unidade.
     assertThat(toString).contains("valueB");
     assertThat(toString).contains("valueC");
     assertThat(toString).contains("valueD");
-  }
+  } 
 ```
+ O método acima testa se um grafo é direcionado. Inicialmente, ele constrói um grafo vazio no qual um nó pode possuir auto-loop. Em seguida, adiciona quatro nós ao grafo (1, 2, 3, e 4), interligando-os da seguinte maneira: nó 1 conecta ao 2 com aresta "valueA", nó 2 conecta ao 1 com aresta "valueB" e, também, ao 3 com aresta "valueC". Finalmente, nó 4 conecta a ele mesmo com aresta "valueD". O segundo bloco de código testa se cada conexão entre os nós possuem arestas iguais aos valores especificados anteriormente. Por fim, converte o grafo em uma String e testa se ele contém as arestas de valores A, B, C e D. 
