@@ -30,4 +30,16 @@ Repositório piloto para Testes de Unidade.
     assertThat(toString).contains("valueD");
   } 
 ```
- O método acima testa se um grafo é direcionado. Inicialmente, ele constrói um grafo vazio no qual um nó pode possuir auto-loop. Em seguida, adiciona quatro nós ao grafo (1, 2, 3, e 4), interligando-os da seguinte maneira: nó 1 conecta ao 2 com aresta "valueA", nó 2 conecta ao 1 com aresta "valueB" e, também, ao 3 com aresta "valueC". Finalmente, nó 4 conecta a ele mesmo com aresta "valueD". O segundo bloco de código testa se cada conexão entre os nós possuem arestas iguais aos valores especificados anteriormente. Por fim, converte o grafo em uma String e testa se ele contém as arestas de valores A, B, C e D. 
+ O método testa se um grafo é direcionado. Inicialmente, ele constrói um grafo vazio no qual um nó pode possuir auto-loop. Em seguida, adiciona quatro nós ao grafo (1, 2, 3, e 4), interligando-os da seguinte maneira: nó 1 conecta ao 2 com aresta "valueA", nó 2 conecta ao 1 com aresta "valueB" e, também, ao 3 com aresta "valueC". Finalmente, nó 4 conecta a ele mesmo com aresta "valueD". O segundo bloco de código testa se cada conexão entre os nós possuem arestas iguais aos valores especificados anteriormente. Por fim, converte o grafo em uma String e testa se ele contém as arestas de valores A, B, C e D. 
+ 
+##### [TypeTokenTest.java](https://github.com/google/guava/blob/master/guava-tests/test/com/google/common/reflect/TypeTokenTest.java)
+
+```java
+@Test
+  public void testValueEqualityNotInstanceEquality() {
+    TypeToken<List<String>> a = new TypeToken<List<String>>() {};
+    TypeToken<List<String>> b = new TypeToken<List<String>>() {};
+    assertEquals(a, b);
+  } 
+```
+ O método testa se os valores de dois objetos instanciados de uma mesma classe são idênticos, sem testar se as instâncias são iguais. Para isso, ele cria duas variáveis, a e b, do mesmo tipo TypeToken<List<String>> e instancia cada uma delas através do comando new TypeToken<List<String>>() {}. Como ambos possuem uma lista vazia de valores do tipo strings, ao verificar os valores de a e b, a função assertEquals(a, b) retornará verdadeiro.    
