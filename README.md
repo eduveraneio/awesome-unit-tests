@@ -88,3 +88,21 @@ A classe FluentIterableTest.java é responsável por FluentIterable.java. Nesta 
   } 
 ```
 Perceba que, cinco listas são criadas: list1, list2, list3, list4 e list5. Cada lista dessa é um vetor de inteiros que possui 1 ou mais elementos. A linha que contém o código @SuppressWarnings("unchecked") significa que avisos do tipo "unchecked" serão ignorados. Em seguida, elas são concatenadas através da função "concat" do objeto FluentIterable (que fornece uma interface rica para manipular instâncias Iterable de maneira encadeada) e armazenadas na variável "result". Posteriormente, o método testa se a lista de tamanho fixo asList(1, 4, 7, 8, 9, 10) é igual ao vetor concatenado newArrayList(result), o que é verdade. Além disso, verifica se o vetor [1, 4, 7, 8, 9, 10] é exatamente a saída de "result" convertido para String, o que também é verdadeiro.
+
+#### Método testCycleOfOneWithRemove() da classe [IteratorsTest.java](https://github.com/google/guava/blob/master/guava-tests/test/com/google/common/collect/IteratorsTest.java)
+
+A classe IteratorsTest.java é responsável por Iterators.java. Nesta classe, temos o método testCycleOfOneWithRemove() que testa as iterações de uma lista com um elemento, e quando este elemento é removido. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testCycleOfOneWithRemove() {
+    Iterable<String> iterable = Lists.newArrayList("a");
+    Iterator<String> cycle = Iterators.cycle(iterable);
+    assertTrue(cycle.hasNext());
+    assertEquals("a", cycle.next());
+    cycle.remove();
+    assertEquals(Collections.emptyList(), iterable);
+    assertFalse(cycle.hasNext());
+  }
+```
+Note que, uma lista de Strings é criada com um único elemento "a" e atribuída a variável "iterable". Após, a variável "cycle" é inicializada e retorna um iterador que irá percorrer indefinidamente os elementos desta lista, desde seu início. O método, então, testa se a lista possui um próximo elemento através do comando assertTrue(cycle.hasNext()), que retorna verdadeiro. Em seguida, verifica se o elemento é exatamente o valor "a", o que também é verdade. Na outra etapa, remove este elemento e testa se a lista está vazia, comparando-a com o método emptyList() do objeto Collections. Como esta validação procede, ou seja, a lista está vazia, testa se ela possui um próximo elemento, no qual o resultado será falso. 
