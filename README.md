@@ -68,3 +68,23 @@ A classe ValueGraphTest.java é responsável por ValueGraph.java. Nesta classe, 
   } 
 ```
 Inicialmente, um grafo vazio é construído sendo que um nó pode possuir auto-loop. Em seguida, adiciona quatro nós ao grafo (1, 2, 3, e 4), interligando-os da seguinte maneira: nó 1 conecta ao 2 com aresta "valueA", nó 2 conecta ao 1 com aresta "valueB" e, também, ao 3 com aresta "valueC". Finalmente, nó 4 conecta a ele mesmo com aresta "valueD". O segundo bloco de código testa se cada conexão entre os nós possuem arestas iguais aos valores especificados anteriormente. Por fim, converte o grafo em uma String e testa se ele contém as arestas de valores A, B, C e D. 
+
+#### Método testConcatVarargs() da classe [FluentIterableTest.java](https://github.com/google/guava/blob/master/guava-tests/test/com/google/common/collect/FluentIterableTest.java)
+
+A classe FluentIterableTest.java é responsável por FluentIterable.java. Nesta classe, temos o método testConcatVarargs() que testa a concatenação dos argumentos de variáveis. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testConcatVarargs() {
+    List<Integer> list1 = newArrayList(1);
+    List<Integer> list2 = newArrayList(4);
+    List<Integer> list3 = newArrayList(7, 8);
+    List<Integer> list4 = newArrayList(9);
+    List<Integer> list5 = newArrayList(10);
+    @SuppressWarnings("unchecked")
+    FluentIterable<Integer> result = FluentIterable.concat(list1, list2, list3, list4, list5);
+    assertEquals(asList(1, 4, 7, 8, 9, 10), newArrayList(result));
+    assertEquals("[1, 4, 7, 8, 9, 10]", result.toString());
+  } 
+```
+Perceba que, cinco listas são criadas: list1, list2, list3, list4 e list5. Cada lista dessa é um vetor de inteiros que possui 1 ou mais elementos. A linha que contém o código @SuppressWarnings("unchecked") significa que avisos do tipo "unchecked" serão ignorados. Em seguida, elas são concatenadas através da função "concat" do objeto FluentIterable (que fornece uma interface rica para manipular instâncias Iterable de maneira encadeada) e armazenadas na variável "result". Posteriormente, o método testa se a lista de tamanho fixo asList(1, 4, 7, 8, 9, 10) é igual ao vetor concatenado newArrayList(result), o que é verdade. Além disso, verifica se o vetor [1, 4, 7, 8, 9, 10] é exatamente a saída de "result" convertido para String, o que também é verdadeiro.
