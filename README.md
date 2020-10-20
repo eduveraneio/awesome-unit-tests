@@ -1,4 +1,4 @@
-# testes-unidade
+# awesome-unit-tests
 Repositório piloto para Testes de Unidade.
 
 ## [google/guava](https://github.com/google/guava)
