@@ -106,3 +106,25 @@ A classe IteratorsTest.java é responsável por Iterators.java. Nesta classe, te
   }
 ```
 Note que, uma lista de Strings é criada com um único elemento "a" e atribuída a variável "iterable". Após, a variável "cycle" é inicializada e retorna um iterador que irá percorrer indefinidamente os elementos desta lista, desde seu início. O método, então, testa se a lista possui um próximo elemento através do comando assertTrue(cycle.hasNext()), que retorna verdadeiro. Em seguida, verifica se o elemento é exatamente o valor "a", o que também é verdade. Na outra etapa, remove este elemento e testa se a lista está vazia, comparando-a com o método emptyList() do objeto Collections. Como esta validação procede, ou seja, a lista está vazia, testa se ela possui um próximo elemento, no qual o resultado será falso. 
+
+## [ReactiveX/RxJava](https://github.com/ReactiveX/RxJava)
+
+RxJava é uma implementação Java VM de Reactive Extensions: uma biblioteca para compor programas assíncronos e baseados em eventos usando sequências observáveis, possibilitando o uso da programação reativa para Java.
+
+#### Método assertTestObserver() da classe [TestObserverTest.java](https://github.com/ReactiveX/RxJava/blob/3.x/src/test/java/io/reactivex/rxjava3/observers/TestObserverTest.java)
+
+A classe TestObserverTest.java extende a classe RxJavaTest.java e é responsável por TestObserver.java. Nesta classe, temos o método assertTestObserver() que testa o ciclo de vida de um "observable", composto por métodos que são executados quando ocorre algum evento, quando os eventos são concluídos e quando ocorre algum erro. O teste desse método é o seguinte:
+
+```java
+@Test
+public void assertTestObserver() {
+   Flowable<Integer> oi = Flowable.fromIterable(Arrays.asList(1, 2));
+   TestSubscriber<Integer> subscriber = new TestSubscriber<>();
+   oi.subscribe(subscriber);
+
+   subscriber.assertValues(1, 2);
+   subscriber.assertValueCount(2);
+   subscriber.assertComplete().assertNoErrors();
+} 
+```
+ No ínicio, cria-se uma variável "oi" do tipo Flowable, na qual um Observable está emitindo alguma quantidade de dados: um vetor de inteiros com os elementos 1 e 2. Em seguida, cria uma instância de TestSubscriber, atribui à variável "subscriber" e a invoca em "oi". Posteriormente, testa se os valores 1 e 2 estão presentes em "subscriber" através da função assertValues(), que retornará verdadeiro. Depois, testa se este objeto contém exatamente dois elementos, sendo esta afirmação verdade. Por fim, verifica se o evento foi concluído sem a presença de erros, o que também é verdadeiro.
