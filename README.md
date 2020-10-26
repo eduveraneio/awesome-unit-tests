@@ -148,3 +148,19 @@ A classe SchedulerTest.java é responsável por Scheduler.java. Nesta classe tem
   } 
 ```
 Temos na primeira linha uma instância de CustomScheduler() sendo armazenada na variável "scheduler", ou seja, inicia-se uma agenda customizada. Em seguida, agenda a execução da tarefa vazia com o atraso de tempo determinado em 1 minuto e atruibui à variável "d", do tipo Disposable. Então, o método testa se a tarefa é descartável através da função assertFalse(), que retorna falso porque a tarefa está agendada. Posteriormente, ela é cancelada quando a função dispose() é requerida e, por fim, testa-se se a tarefa pode ser descartada utilizando a função assertTrue(), que retorna verdadeiro.
+
+#### Método valueOfOnCompleteIsNull() da classe [NotificationTest.java](https://github.com/ReactiveX/RxJava/blob/3.x/src/test/java/io/reactivex/rxjava3/core/NotificationTest.java)
+
+A classe NotificationTest.java extende RxJavaTest.java é responsável por Notification.java. Nesta classe temos o método valueOfOnCompleteIsNull() que testa se o valor de uma notificação é nulo e não possui erros quando o tipo de sinal reativo é onComplete. O teste desse método é o seguinte:
+
+```java
+@Test
+    public void valueOfOnCompleteIsNull() {
+        Notification<Integer> notification = Notification.createOnComplete();
+
+        assertNull(notification.getValue());
+        assertNull(notification.getError());
+        assertTrue(notification.isOnComplete());
+    }
+```
+Uma notificação representa um dos três tipos de sinais reativos: onNext, onError e onComplete e mantém seus valores de parâmetro (um valor, um Throwable, nada). Perceba que, inicialmente, uma notificação onComplete é criada através da função createOnComplete() e armazenada na variável "notification" do tipo Notification. O método, então, testa se este valor é nulo e também verifica se não possui algum erro através da chamada de funções assertNull(). Em ambos os casos, o valor retornado será nulo, logo, o teste passará. Após isto, o método verifica se o objeto notification é onComplete, o que é verdade.  
