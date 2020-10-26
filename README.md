@@ -155,12 +155,12 @@ A classe NotificationTest.java extende RxJavaTest.java é responsável por Notif
 
 ```java
 @Test
-    public void valueOfOnCompleteIsNull() {
-        Notification<Integer> notification = Notification.createOnComplete();
+  public void valueOfOnCompleteIsNull() {
+    Notification<Integer> notification = Notification.createOnComplete();
 
-        assertNull(notification.getValue());
-        assertNull(notification.getError());
-        assertTrue(notification.isOnComplete());
-    }
+    assertNull(notification.getValue());
+    assertNull(notification.getError());
+    assertTrue(notification.isOnComplete());
+  }
 ```
 Uma notificação representa um dos três tipos de sinais reativos: onNext, onError e onComplete e mantém seus valores de parâmetro (um valor, um Throwable, nada). Perceba que, inicialmente, uma notificação onComplete é criada através da função createOnComplete() e armazenada na variável "notification" do tipo Notification. O método, então, testa se este valor é nulo e também verifica se não possui algum erro através da chamada de funções assertNull(). Em ambos os casos, o valor retornado será nulo, logo, o teste passará. Após isto, o método verifica se o objeto notification é onComplete, o que é verdade.  
