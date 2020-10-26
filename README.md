@@ -117,14 +117,34 @@ A classe TestObserverTest.java extende a classe RxJavaTest.java e é responsáve
 
 ```java
 @Test
-public void assertTestObserver() {
-   Flowable<Integer> oi = Flowable.fromIterable(Arrays.asList(1, 2));
-   TestSubscriber<Integer> subscriber = new TestSubscriber<>();
-   oi.subscribe(subscriber);
+  public void assertTestObserver() {
+     Flowable<Integer> oi = Flowable.fromIterable(Arrays.asList(1, 2));
+     TestSubscriber<Integer> subscriber = new TestSubscriber<>();
+     oi.subscribe(subscriber);
 
-   subscriber.assertValues(1, 2);
-   subscriber.assertValueCount(2);
-   subscriber.assertComplete().assertNoErrors();
-} 
+     subscriber.assertValues(1, 2);
+     subscriber.assertValueCount(2);
+     subscriber.assertComplete().assertNoErrors();
+  } 
 ```
- No ínicio, cria-se uma variável "oi" do tipo Flowable, na qual um Observable está emitindo alguma quantidade de dados: um vetor de inteiros com os elementos 1 e 2. Em seguida, cria uma instância de TestSubscriber, atribui à variável "subscriber" e a invoca em "oi". Posteriormente, testa se os valores 1 e 2 estão presentes em "subscriber" através da função assertValues(), que retornará verdadeiro. Depois, testa se este objeto contém exatamente dois elementos, sendo esta afirmação verdade. Por fim, verifica se o evento foi concluído sem a presença de erros, o que também é verdadeiro.
+No ínicio, cria-se uma variável "oi" do tipo Flowable, na qual um Observable está emitindo alguma quantidade de dados: um vetor de inteiros com os elementos 1 e 2. Em seguida, cria uma instância de TestSubscriber, atribui à variável "subscriber" e a invoca em "oi". Posteriormente, testa se os valores 1 e 2 estão presentes em "subscriber" através da função assertValues(), que retornará verdadeiro. Depois, testa se este objeto contém exatamente dois elementos, sendo esta afirmação verdade. Por fim, verifica se o evento foi concluído sem a presença de erros, o que também é verdadeiro.
+ 
+#### Método customScheduleDirectDisposed() da classe [SchedulerTest.java](https://github.com/ReactiveX/RxJava/blob/3.x/src/test/java/io/reactivex/rxjava3/schedulers/SchedulerTest.java)
+
+A classe SchedulerTest.java é responsável por Scheduler.java. Nesta classe temos o método customScheduleDirectDisposed() que testa o agendamento personalisado da tarefa, sendo que ela pode ser descatada diretamente. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void customScheduleDirectDisposed() {
+    CustomScheduler scheduler = new CustomScheduler();
+
+    Disposable d = scheduler.scheduleDirect(Functions.EMPTY_RUNNABLE, 1, TimeUnit.MINUTES);
+
+    assertFalse(d.isDisposed());
+
+    d.dispose();
+
+    assertTrue(d.isDisposed());
+  } 
+```
+Temos na primeira linha uma instância de CustomScheduler() sendo armazenada na variável "scheduler", ou seja, inicia-se uma agenda customizada. Em seguida, agenda a execução da tarefa vazia com o atraso de tempo determinado em 1 minuto e atruibui à variável "d", do tipo Disposable. Então, o método testa se a tarefa é descartável através da função assertFalse(), que retorna falso porque a tarefa está agendada. Posteriormente, ela é cancelada quando a função dispose() é requerida e, por fim, testa-se se a tarefa pode ser descartada utilizando a função assertTrue(), que retorna verdadeiro.
