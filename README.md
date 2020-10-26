@@ -113,7 +113,7 @@ RxJava é uma implementação Java VM de Reactive Extensions: uma biblioteca par
 
 #### Método assertTestObserver() da classe [TestObserverTest.java](https://github.com/ReactiveX/RxJava/blob/3.x/src/test/java/io/reactivex/rxjava3/observers/TestObserverTest.java)
 
-A classe TestObserverTest.java extende a classe RxJavaTest.java e é responsável por TestObserver.java. Nesta classe, temos o método assertTestObserver() que testa o ciclo de vida de um "observable", composto por métodos que são executados quando ocorre algum evento, quando os eventos são concluídos e quando ocorre algum erro. O teste desse método é o seguinte:
+A classe TestObserverTest.java é responsável por TestObserver.java. Nesta classe, temos o método assertTestObserver() que testa o ciclo de vida de um "observable", composto por métodos que são executados quando ocorre algum evento, quando os eventos são concluídos e quando ocorre algum erro. O teste desse método é o seguinte:
 
 ```java
 @Test
@@ -151,7 +151,7 @@ Temos na primeira linha uma instância de CustomScheduler() sendo armazenada na 
 
 #### Método valueOfOnCompleteIsNull() da classe [NotificationTest.java](https://github.com/ReactiveX/RxJava/blob/3.x/src/test/java/io/reactivex/rxjava3/core/NotificationTest.java)
 
-A classe NotificationTest.java extende RxJavaTest.java é responsável por Notification.java. Nesta classe temos o método valueOfOnCompleteIsNull() que testa se o valor de uma notificação é nulo e não possui erros quando o tipo de sinal reativo é onComplete. O teste desse método é o seguinte:
+A classe NotificationTest.java é responsável por Notification.java. Nesta classe temos o método valueOfOnCompleteIsNull() que testa se o valor de uma notificação é nulo e não possui erros quando o tipo de sinal reativo é onComplete. O teste desse método é o seguinte:
 
 ```java
 @Test
@@ -163,11 +163,33 @@ A classe NotificationTest.java extende RxJavaTest.java é responsável por Notif
     assertTrue(notification.isOnComplete());
   }
 ```
-Uma notificação representa um dos três tipos de sinais reativos: onNext, onError e onComplete e mantém seus valores de parâmetro (um valor, um Throwable, nada). Perceba que, inicialmente, uma notificação onComplete é criada através da função createOnComplete() e armazenada na variável "notification" do tipo Notification. O método, então, testa se este valor é nulo e também verifica se não possui algum erro através da chamada de funções assertNull(). Em ambos os casos, o valor retornado será nulo, logo, o teste passará. Após isto, o método verifica se o objeto notification é onComplete, o que é verdade.  
+Uma notificação representa um dos três tipos de sinais reativos: onNext, onError e onComplete e mantém seus valores de parâmetro (um valor, um Throwable, nada). Perceba que, inicialmente, uma notificação onComplete é criada através da função createOnComplete() e armazenada na variável "notification" do tipo Notification. O método, então, testa se este valor é nulo e também verifica se não possui algum erro através da chamada de funções assertNull(). Em ambos os casos, o valor retornado será nulo, logo, o teste passará. Após isto, o método verifica se o objeto notification é onComplete, o que é verdade.
+
+#### Método hasObservers() da classe [UnicastSubjectTest.java](https://github.com/ReactiveX/RxJava/blob/3.x/src/test/java/io/reactivex/rxjava3/subjects/UnicastSubjectTest.java)
+
+A classe UnicastSubjectTest.java é responsável por UnicastSubject.java. Nesta classe temos o método hasObservers() que testa se existe um observador para um assunto qualquer. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void hasObservers() {
+    UnicastSubject<Integer> us = UnicastSubject.create();
+
+    assertFalse(us.hasObservers());
+
+    TestObserver<Integer> to = us.test();
+
+    assertTrue(us.hasObservers());
+
+    to.dispose();
+
+    assertFalse(us.hasObservers());
+  }
+```
+A classe UnicastSubject representa um assunto que enfileira eventos até que um único observador se inscreva nele. Inicialmente, uma instância dessa classe é criada e armazenada na variável "us". Então, o método testa se há um observador através de assertFalse(us.hasObservers()), que retorna falso. Depois, cria-se um observador "to" que passa a interagir com o objeto. Assim, ao testar novamente se existe um observador a função assertTrue(us.hasObservers()) retorna verdadeiro. Por último, remove o observador pela função to.dispose() e testa, em seguida, se o objeto não contém observadores, o que é verdade.     
 
 #### Método isBug() da classe [RxJavaPluginsTest.java](https://github.com/ReactiveX/RxJava/blob/3.x/src/test/java/io/reactivex/rxjava3/plugins/RxJavaPluginsTest.java)
 
-A classe RxJavaPluginsTest.java extende RxJavaTest.java é responsável por RxJavaPlugins.java. Nesta classe temos o método isBug() que testa se um plugin adicionado a biblioteca RxJava possui algum erro. O teste desse método é o seguinte:
+A classe RxJavaPluginsTest.java é responsável por RxJavaPlugins.java. Nesta classe temos o método isBug() que testa se um plugin adicionado a biblioteca RxJava possui algum erro. O teste desse método é o seguinte:
 
 ```java
 @Test
@@ -187,4 +209,4 @@ A classe RxJavaPluginsTest.java extende RxJavaTest.java é responsável por RxJa
     assertTrue(RxJavaPlugins.isBug(new OnErrorNotImplementedException(new TestException())));
   }
 ```
-Observe que, ao injetar um plugin para alguma operação padrão do RxJava o método realiza vários testes em busca de algum erro. No primeiro bloco, quatro testes são executados e validados através da função assertFalse(): RuntimeException, IOException, InterruptedException e InterruptedIOException. Nesta situação, espera-se que todos os valores sejam falsos, caso contrário, o teste não passará. No segundo bloco, mais oito testes são feitos instanciando objetos do tipo  NullPointerException, IllegalArgumentException, IllegalStateException, MissingBackpressureException, ProtocolViolationException, UndeliverableException, CompositeException e OnErrorNotImplementedException. Aqui, utiliza-se a função assertTrue() para verificar se valores são verdadeiros, ou seja, que nenhuma erro foi identificado para as instãncias solicitadas.
+Observe que, ao injetar um plugin para alguma operação padrão do RxJava o método realiza vários testes em busca de algum erro. No primeiro bloco, quatro testes são executados e validados através da função assertFalse(): RuntimeException, IOException, InterruptedException e InterruptedIOException. Nesta situação, espera-se que todos os valores sejam falsos, caso contrário, o teste não passará. No segundo bloco, mais oito testes são feitos instanciando objetos do tipo  NullPointerException, IllegalArgumentException, IllegalStateException, MissingBackpressureException, ProtocolViolationException, UndeliverableException, CompositeException e OnErrorNotImplementedException. Aqui, utiliza-se a função assertTrue() para verificar se valores são verdadeiros, ou seja, que nenhum erro foi identificado.
