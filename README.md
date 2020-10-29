@@ -366,4 +366,22 @@ A classe AccessKeyAuthenticatorTest.java é responsável por AccessKeyAuthentica
     assertThrows(RpcAuthenticationException.class, () -> helper.authenticate(invocation, url));
   }
 ```
-Logo no início, a váriavel "url" do tipo URL é inicializada com o endereço "dubbo://10.10.10.10:2181". Além disso, atribui os parâmetros "ak" para a variável global ACCESS_KEY_ID_KEY, "test" para APPLICATION_KEY e "sk" para SECRET_ACCESS_KEY_KEY, ou seja, dá permissão de acesso ao endereço da url sem a necessidade de autenticação. Posteriormente, uma instância da classe RpcInvocation() é armazenada na variável "invocation" e uma instância de AccessKeyAuthenticator() em "helper". Com isso, através da função assertThrows(), o método testa se a exceção foi lançada para o objeto "helper", que fora atutenticado.
+Logo no início, a váriavel "url" do tipo URL é inicializada com o endereço "dubbo://10.10.10.10:2181". Além disso, atribui os parâmetros "ak" para a variável global ACCESS_KEY_ID_KEY, "test" para APPLICATION_KEY e "sk" para SECRET_ACCESS_KEY_KEY, ou seja, dá permissão de acesso ao endereço da url sem a necessidade de autenticação. Posteriormente, uma instância da classe RpcInvocation() é armazenada na variável "invocation" e uma instância de AccessKeyAuthenticator() em "helper". Com isso, através da função assertThrows(), o método testa se a exceção foi lançada para o objeto "helper", que fora atutenticado manualmente.
+
+#### Método testJCacheGetExpired() da classe [JCacheFactoryTest.java](https://github.com/apache/dubbo/blob/master/dubbo-filter/dubbo-filter-cache/src/test/java/org/apache/dubbo/cache/support/jcache/JCacheFactoryTest.java)
+
+A classe JCacheFactoryTest.java é responsável por JCacheFactory.java. Nesta classe, temos o método testJCacheGetExpired() que testa se um cache está expirado. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testJCacheGetExpired() throws Exception {
+    URL url = URL.valueOf("test://test:12/test?cache=jacache&cache.write.expire=1");
+    AbstractCacheFactory cacheFactory = getCacheFactory();
+    Invocation invocation = new RpcInvocation();
+    Cache cache = cacheFactory.getCache(url, invocation);
+    cache.put("testKey", "testValue");
+    Thread.sleep(10);
+    assertNull(cache.get("testKey"));
+  }
+```
+Observe que, a váriavel "url" do tipo URL é inicializada com o endereço "test://test:12/test?cache=jacache&cache.write.expire=1". Note também que o parâmetro "cache.write.expire=1" significa que o cache da página deve expirar em 1 segundo. Então, é atribuída à variável "cacheFactory", do tipo AbstractCacheFactory, o valor da função getCacheFactory(). Posteriormente, uma instância de RpcInvocation() é armazenada na variável "invocation", usada para capturar o cache da url através da função getCache(), que é atribuída ao objeto "cache". Neste, adiciona-se os elementos "testKey" e "testValue", ou seja, uma chave e um valor. Em seguida, uma thread é lançada de modo que a página deve aguardar 10 segundos, expirando, assim, o cache da mesma. Finalmente, o método testa se o cache de chave "testKey" é nulo através da função assertNull(), o que é verdade.
