@@ -296,3 +296,25 @@ A classe ExecutingJavascriptTest.java é responsável por ExecutingJavascript.ja
   }
 ```
 Note que, uma página web é requisitada pela função driver.get() com o conteúdo da página "javascriptPage". Posteriormente, através do comando executeScript(), a função displayMessage() é chamada passando como parâmetro o texto "I like cheese". Em seguida, armazena na variável "text", do tipo String, o conteúdo do elemento de identificador "result", que contém o valor parametrizado. Por fim, utiliza a função assertThat() para assegurar que o texto presente em "text" é exatamente igual ao valor passado como parâmento na função, ou seja, que ela foi executada e que retornou o valor esperado.
+
+## [apache/dubbo](https://github.com/apache/dubbo)
+
+Dubbo é uma estrutura de microsserviço e RPC de código aberto da Alibaba, na qual ajuda aprimorar a governança de serviços e possibilita que aplicativos monolíticos sejam refatorados sem problemas para uma arquitetura distribuída escalável.
+
+#### Método testHasMethod() da classe [WrapperTest.java](https://github.com/apache/dubbo/blob/master/dubbo-common/src/test/java/org/apache/dubbo/common/bytecode/WrapperTest.java)
+
+A classe WrapperTest.java é responsável por Wrapper.java. Nesta classe, temos o método testHasMethod() que testa se uma determinada classe possui implementaççoes de diversos métodos pré-definidos. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testHasMethod() throws Exception {
+      Wrapper w = Wrapper.getWrapper(I1.class);
+      Assertions.assertTrue(w.hasMethod("setName"));
+      Assertions.assertTrue(w.hasMethod("hello"));
+      Assertions.assertTrue(w.hasMethod("showInt"));
+      Assertions.assertTrue(w.hasMethod("getFloat"));
+      Assertions.assertTrue(w.hasMethod("setFloat"));
+      Assertions.assertFalse(w.hasMethod("setFloatXXX"));
+  }
+```
+ Observe que o método cria uma variável "w" do tipo Wrapper, objeto este capaz de ler e gravar os atributos de uma instância da classe "I1", bem como as suas funcionalidades. Então, realiza-se os testes através de comandos assertTrue() e assertFalse(). O primeiro irá constatar a existência do método na classe I1, por sua vez, o segundo assegura a ausência do método. Neste cenário temos que as funções setName(), hello(), showInt(), getFloat() e setFloat() estão implementadas, contudo, o método setFloatXXX() não pertence a classe analisada.
