@@ -231,7 +231,7 @@ Primeiramente, uma página web "simpleTestPage" é aberta de forma automática p
 
 #### Método testCleanFileInput() da classe [UploadTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/UploadTest.java)
 
-A classe UploadTest.java é responsável por Upload.java. Nesta classe, temos o método testCleanFileInput() que testa se o conteúdo de um campo para envio de arquivos é vazio. O teste desse método é o seguinte:
+A classe UploadTest.java é responsável por Upload.java. Nesta classe, temos o método testCleanFileInput() que testa se o conteúdo de um campo para envio de arquivos está vazio. O teste desse método é o seguinte:
 
 ```java
 @Test
@@ -244,3 +244,21 @@ A classe UploadTest.java é responsável por Upload.java. Nesta classe, temos o 
   }
 ```
 De início, o método solicita a abertura da página web "uploadPage" através da função driver.get(). Em seguida, armazena na variável "element", do tipo WebElement, o elemento contido nesta página que possui identificador "upload". Então, escreve automaticamente neste campo, usando o método sendKeys(), o nome do caminho absoluto de um arquivo pertencente a classe "testFile". Após preenchido, o mesmo elemento é esvaziado ao executar o comando element.clear() e testado se ele está realmente vazio após esta opração, utilizando-se da função assertThat() que verifica se o valor do atributo de "element" é igual a "".
+
+#### Método testShouldAllowTheUserToTellIfAnElementIsDisplayedOrNot() da classe [VisibilityTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/VisibilityTest.java)
+
+A classe VisibilityTest.java é responsável por Visibility.java. Nesta classe, temos o método testShouldAllowTheUserToTellIfAnElementIsDisplayedOrNot() que testa se um elemento deve ser exibido ou não para o usuário final. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testShouldAllowTheUserToTellIfAnElementIsDisplayedOrNot() {
+    driver.get(pages.javascriptPage);
+
+    assertThat(driver.findElement(By.id("displayed")).isDisplayed()).isTrue();
+    assertThat(driver.findElement(By.id("none")).isDisplayed()).isFalse();
+    assertThat(driver.findElement(By.id("suppressedParagraph")).isDisplayed()).isFalse();
+    assertThat(driver.findElement(By.id("hidden")).isDisplayed()).isFalse();
+  }
+```
+Observe que, a chamada da função driver.get() abre automaticamente a página de conteúdo javascript "javascriptPage". Com a página aberta inicia-se quatro testes utilizando o comando assertThat(). No primeiro, localiza-se o elemento de identificador "displayed" e verifica se ele está visível para o usuário. No segundo, confirma que o elemento de id "none" está oculto na página. Da mesma maneira, para o terceiro e quarto testes, é analisado se os elementos "suppressedParagraph" e "hidden", respectivamente, estão ocultos para o usuário final. Como a página pertence a estrutura do framework todos os testes devem passar.
+
