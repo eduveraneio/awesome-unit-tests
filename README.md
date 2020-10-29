@@ -213,7 +213,7 @@ Observe que, ao injetar um plugin para alguma operação padrão do RxJava o mé
 
 ## [SeleniumHQ/selenium](https://github.com/SeleniumHQ/selenium)
 
-Selenium é uma estrutura de teste automatizada gratuita e de código aberto usada para validar aplicativos da web em diferentes navegadores e plataformas.
+Selenium é uma estrutura gratuita de testes automatizados usada para validar aplicativos da web em diferentes navegadores e plataformas, proporcionando aos desenvolvedores entregar ciclos de testes mais rapidamente.
 
 #### Método testElementImplementsWrapsDriver() da classe [WebElementTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/WebElementTest.java)
 
