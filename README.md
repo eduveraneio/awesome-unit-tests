@@ -228,3 +228,19 @@ A classe WebElementTest.java é responsável por WebElement.java. Nesta classe, 
   }
 ```
 Primeiramente, uma página web "simpleTestPage" é aberta de forma automática pelo comando driver.get(). Depois, cria-se a variável "parent" do tipo WebElement, que representa um elemento DOM, e atribui à ela o de identificação "containsSomeDiv". A função driver.findElement() é responsável por procurar na página aberta o elemento correspondente. Então, o método testa se este elemento é uma instância de WrapsDriver.class, ou seja, se ele está presente na página, atraveś da chamada assertThat(). Como "simpleTestPage" refere-se a uma página previamente existente na estrutura, o elemento será localizado e o teste passará. 
+
+#### Método testCleanFileInput() da classe [UploadTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/UploadTest.java)
+
+A classe UploadTest.java é responsável por Upload.java. Nesta classe, temos o método testCleanFileInput() que testa se o conteúdo de um campo para envio de arquivos é vazio. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testCleanFileInput() {
+    driver.get(pages.uploadPage);
+    WebElement element = driver.findElement(By.id("upload"));
+    element.sendKeys(testFile.getAbsolutePath());
+    element.clear();
+    assertThat(element.getAttribute("value")).isEqualTo("");
+  }
+```
+De início, o método solicita a abertura da página web "uploadPage" através da função driver.get(). Em seguida, armazena na variável "element", do tipo WebElement, o elemento contido nesta página que possui identificador "upload". Então, escreve automaticamente neste campo, usando o método sendKeys(), o nome do caminho absoluto de um arquivo pertencente a classe "testFile". Após preenchido, o mesmo elemento é esvaziado ao executar o comando element.clear() e testado se ele está realmente vazio após esta opração, utilizando-se da função assertThat() que verifica se o valor do atributo de "element" é igual a "".
