@@ -215,6 +215,15 @@ Observe que, ao injetar um plugin para alguma operação padrão do RxJava o mé
 
 Selenium é uma estrutura gratuita de testes automatizados usada para validar aplicativos da web em diferentes navegadores e plataformas, proporcionando aos desenvolvedores entregar ciclos de testes mais rapidamente.
 
+Obs.: Para os testes seguintes, o método setUp() sempre será processado inicialmente para definir o escopo de "driver".
+
+```java
+@Before
+  public void setUp() {
+    assumeTrue(driver instanceof JavascriptExecutor);
+  }
+```
+
 #### Método testElementImplementsWrapsDriver() da classe [WebElementTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/WebElementTest.java)
 
 A classe WebElementTest.java é responsável por WebElement.java. Nesta classe, temos o método testElementImplementsWrapsDriver() que testa se um elemento está implementado no código fonte de uma página. O teste desse método é o seguinte:
@@ -227,7 +236,7 @@ A classe WebElementTest.java é responsável por WebElement.java. Nesta classe, 
     assertThat(parent).isInstanceOf(WrapsDriver.class);
   }
 ```
-Primeiramente, uma página web "simpleTestPage" é aberta de forma automática pelo comando driver.get(). Depois, cria-se a variável "parent" do tipo WebElement, que representa um elemento DOM, e atribui à ela o de identificação "containsSomeDiv". A função driver.findElement() é responsável por procurar na página aberta o elemento correspondente. Então, o método testa se este elemento é uma instância de WrapsDriver.class, ou seja, se ele está presente na página, atraveś da chamada assertThat(). Como "simpleTestPage" refere-se a uma página previamente existente na estrutura, o elemento será localizado e o teste passará. 
+Primeiramente, uma página web "simpleTestPage" é simulada de forma automática pelo comando driver.get(). Depois, cria-se a variável "parent" do tipo WebElement, que representa um elemento DOM, e atribui à ela o de identificação "containsSomeDiv". A função driver.findElement() é responsável por procurar na página aberta o elemento correspondente. Então, o método testa se este elemento é uma instância de WrapsDriver.class, ou seja, se ele está presente na página, atraveś da chamada assertThat(). Como "simpleTestPage" refere-se a uma página previamente existente na estrutura, o elemento será localizado e o teste passará. 
 
 #### Método testCleanFileInput() da classe [UploadTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/UploadTest.java)
 
@@ -243,7 +252,7 @@ A classe UploadTest.java é responsável por Upload.java. Nesta classe, temos o 
     assertThat(element.getAttribute("value")).isEqualTo("");
   }
 ```
-De início, o método solicita a abertura da página web "uploadPage" através da função driver.get(). Em seguida, armazena na variável "element", do tipo WebElement, o elemento contido nesta página que possui identificador "upload". Então, escreve automaticamente neste campo, usando o método sendKeys(), o nome do caminho absoluto de um arquivo pertencente a classe "testFile". Após preenchido, o mesmo elemento é esvaziado ao executar o comando element.clear() e testado se ele está realmente vazio após esta opração, utilizando-se da função assertThat() que verifica se o valor do atributo de "element" é igual a "".
+De início, o método simula a abertura da página web "uploadPage" através da função driver.get(). Em seguida, armazena na variável "element", do tipo WebElement, o elemento contido nesta página que possui identificador "upload". Então, escreve automaticamente neste campo, usando o método sendKeys(), o nome do caminho absoluto de um arquivo pertencente a classe "testFile". Após preenchido, o mesmo elemento é esvaziado ao executar o comando element.clear() e testado se ele está realmente vazio após esta opração, utilizando-se da função assertThat() que verifica se o valor do atributo de "element" é igual a "".
 
 #### Método testShouldAllowTheUserToTellIfAnElementIsDisplayedOrNot() da classe [VisibilityTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/VisibilityTest.java)
 
@@ -260,7 +269,7 @@ A classe VisibilityTest.java é responsável por Visibility.java. Nesta classe, 
     assertThat(driver.findElement(By.id("hidden")).isDisplayed()).isFalse();
   }
 ```
-Observe que, a chamada da função driver.get() abre automaticamente a página de conteúdo javascript "javascriptPage". Com a página aberta inicia-se quatro testes utilizando o comando assertThat(). No primeiro, localiza-se o elemento de identificador "displayed" e verifica se ele está visível para o usuário. No segundo, confirma que o elemento de id "none" está oculto na página. Da mesma maneira, para o terceiro e quarto testes, é analisado se os elementos "suppressedParagraph" e "hidden", respectivamente, estão ocultos para o usuário final. Como a página pertence a estrutura do framework todos os testes devem passar.
+Observe que, a chamada da função driver.get() instancia um objeto no qual é solicitado o carregamento da página "javascriptPage". Com a página aberta inicia-se quatro testes utilizando o comando assertThat(). No primeiro, localiza-se o elemento de identificador "displayed" e verifica se ele está visível para o usuário. No segundo, confirma que o elemento de id "none" está oculto na página. Da mesma maneira, para o terceiro e quarto testes, é analisado se os elementos "suppressedParagraph" e "hidden", respectivamente, estão ocultos para o usuário final. Como a página pertence a estrutura do framework todos os testes devem passar.
 
 #### Método testCanClickOnAnElementWithTopSetToANegativeNumber() da classe [ClickTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/ClickTest.java)
 
@@ -279,7 +288,7 @@ A classe ClickTest.java é responsável por Click.java. Nesta classe, temos o m�
     assertThat(log).isEqualTo("click");
   }
 ```
-Inicialmente, atribui-se à variável "page" o caminho de "styledPage.html". Em seguida, esta página é aberta pela função driver.get(). Depois, localiza-se o elemento de nome "searchBox" e o atribui à variável "searchBox", um WebElement. Após, escreve automaticamente neste elemento a palavra "Cheese", usando a função sendKeys(). Então, o método procura pelo elemento de nome "btn" e o aciona através do evento click(). Para validar esta operação, o texto do elemento de id "log" é armazenado na variável "log", do tipo String. Dessa forma, usa-se a função assertThat() para assegurar que seu conteúdo é a palavra "click", referente à ação propositada.
+Inicialmente, atribui-se à variável "page" o caminho de "styledPage.html". Em seguida, esta página é instanciada pela função driver.get(). Depois, localiza-se o elemento de nome "searchBox" e o atribui à variável "searchBox", um WebElement. Após, escreve automaticamente neste elemento a palavra "Cheese", usando a função sendKeys(). Então, o método procura pelo elemento de nome "btn" e o aciona através do evento click(). Para validar esta operação, o texto do elemento de id "log" é armazenado na variável "log", do tipo String. Dessa forma, usa-se a função assertThat() para assegurar que seu conteúdo é a palavra "click", referente à ação propositada.
 
 #### Método testShouldBeAbleToCallFunctionsDefinedOnThePage() da classe [ExecutingJavascriptTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/ExecutingJavascriptTest.java)
 
@@ -295,4 +304,4 @@ A classe ExecutingJavascriptTest.java é responsável por ExecutingJavascript.ja
     assertThat(text.trim()).isEqualTo("I like cheese");
   }
 ```
-Note que, um navegador web é aberto pela função driver.get() com o conteúdo da página "javascriptPage". Posteriormente, através do comando executeScript(), a função displayMessage() é chamada passando como parâmetro o texto "I like cheese". Em seguida, armazena na variável "text", do tipo String, o conteúdo do elemento de identificador "result", que contém o valor parametrizado. Por fim, utiliza a função assertThat() para assegurar que o texto presente em "text" é exatamente igual ao valor passado como parâmento na função, ou seja, que ela foi executada e que retornou o valor esperado.
+Note que, uma página web é instanciada pela função driver.get() com o conteúdo da página "javascriptPage". Posteriormente, através do comando executeScript(), a função displayMessage() é chamada passando como parâmetro o texto "I like cheese". Em seguida, armazena na variável "text", do tipo String, o conteúdo do elemento de identificador "result", que contém o valor parametrizado. Por fim, utiliza a função assertThat() para assegurar que o texto presente em "text" é exatamente igual ao valor passado como parâmento na função, ou seja, que ela foi executada e que retornou o valor esperado.
