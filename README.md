@@ -319,7 +319,7 @@ A classe WrapperTest.java é responsável por Wrapper.java. Nesta classe, temos 
 ```
  Observe que o método cria uma variável "w" do tipo Wrapper, objeto este capaz de ler e gravar os atributos de uma instância da classe "I1", bem como as suas funcionalidades. Então, realiza-se os testes através de comandos assertTrue() e assertFalse(). O primeiro irá constatar a existência do método na classe I1, por sua vez, o segundo assegura a ausência do método. Neste cenário temos que as funções setName(), hello(), showInt(), getFloat() e setFloat() estão implementadas, contudo, o método setFloatXXX() não pertence a classe analisada.
  
- #### Método testConstructor1() da classe [StatusTest.java](https://github.com/apache/dubbo/blob/master/dubbo-common/src/test/java/org/apache/dubbo/common/status/StatusTest.java)
+#### Método testConstructor1() da classe [StatusTest.java](https://github.com/apache/dubbo/blob/master/dubbo-common/src/test/java/org/apache/dubbo/common/status/StatusTest.java)
 
 A classe StatusTest.java é responsável por Status.java. Nesta classe, temos o método testConstructor1() que testa se o construtor de uma classe foi inicializado corretamente, validando os parâmentos de entrada. O teste desse método é o seguinte:
 
@@ -333,3 +333,20 @@ A classe StatusTest.java é responsável por Status.java. Nesta classe, temos o 
   }
 ```
 Veja que uma instância da classe Status é criada e atribuida à variável "status". Além disso, note que são três os parâmetros de inicialização: "OK", "message" e "description". Logo, o método de teste visa assegurar que estes parâmetros são válidos através das chamadas de assertThat(). Inicialmente, valida se o primeiro parâmetro passado corresponde ao nível "OK", o que é verdade. Em seguida, confere se o segundo parãmetro é a palavra "message", o teste passa. Por fim, analisa se o texto do terceiro parâmento é a palavra "description", o que também é verdadeiro. Como os testes passam, pode-se inferir que o construtor foi inicializado corretamente.
+
+ #### Método test() da classe [GenericEventTest.java](https://github.com/apache/dubbo/blob/master/dubbo-common/src/test/java/org/apache/dubbo/event/GenericEventTest.java)
+
+A classe GenericEventTest.java é responsável por GenericEvent.java. Nesta classe, temos o método test() que testa se um evento genérico foi inicializado anteriormente. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void test() {
+
+      long timestamp = System.currentTimeMillis();
+      GenericEvent<String> event = new GenericEvent("Hello,World");
+
+      assertEquals("Hello,World", event.getSource());
+      assertTrue(event.getTimestamp() >= timestamp);
+  }
+```
+A váriavel "timestamp" do tipo long é inicializada com a hora atual em milissegundos. Em seguida, uma instância do objeto GenericEvent(), com o construtor recebendo a palavra "Hello,World", é armazenada na variável "event", uma string do tipo GenericEvent. Então, o método testa se o conteúdo de "event", usando a função getSource(), é a string "Hello,World" e assegura que a data de momento é maior que a data de criação do evento genérico, comparando a função getTimestamp() de "event" com a variável "timestamp". Ambos os testes passam.
