@@ -210,3 +210,21 @@ A classe RxJavaPluginsTest.java é responsável por RxJavaPlugins.java. Nesta cl
   }
 ```
 Observe que, ao injetar um plugin para alguma operação padrão do RxJava o método realiza vários testes em busca de algum erro. No primeiro bloco, quatro testes são executados e validados através da função assertFalse(): RuntimeException, IOException, InterruptedException e InterruptedIOException. Nesta situação, espera-se que todos os valores sejam falsos, caso contrário, o teste não passará. No segundo bloco, mais oito testes são feitos instanciando objetos do tipo  NullPointerException, IllegalArgumentException, IllegalStateException, MissingBackpressureException, ProtocolViolationException, UndeliverableException, CompositeException e OnErrorNotImplementedException. Aqui, utiliza-se a função assertTrue() para verificar se valores são verdadeiros, ou seja, que nenhum erro foi identificado.
+
+## [SeleniumHQ/selenium](https://github.com/SeleniumHQ/selenium)
+
+Selenium é uma estrutura de teste automatizada gratuita e de código aberto usada para validar aplicativos da web em diferentes navegadores e plataformas.
+
+#### Método testElementImplementsWrapsDriver() da classe [WebElementTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/WebElementTest.java)
+
+A classe WebElementTest.java é responsável por WebElement.java. Nesta classe, temos o método testElementImplementsWrapsDriver() que testa se um elemento está implementado no código fonte de uma página. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testElementImplementsWrapsDriver() {
+    driver.get(pages.simpleTestPage);
+    WebElement parent = driver.findElement(By.id("containsSomeDiv"));
+    assertThat(parent).isInstanceOf(WrapsDriver.class);
+  }
+```
+Primeiramente, uma página web "simpleTestPage" é aberta de forma automática pelo comando driver.get(). Depois, cria-se a variável "parent" do tipo WebElement, que representa um elemento DOM, e atribui à ela o de identificação "containsSomeDiv". A função driver.findElement() é responsável por procurar na página aberta o elemento correspondente. Então, o método testa se este elemento é uma instância de WrapsDriver.class, ou seja, se ele está presente na página, atraveś da chamada assertThat(). Como "simpleTestPage" refere-se a uma página previamente existente na estrutura, o elemento será localizado e o teste passará. 
