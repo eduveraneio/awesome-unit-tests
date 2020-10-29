@@ -118,13 +118,13 @@ A classe TestObserverTest.java é responsável por TestObserver.java. Nesta clas
 ```java
 @Test
   public void assertTestObserver() {
-     Flowable<Integer> oi = Flowable.fromIterable(Arrays.asList(1, 2));
-     TestSubscriber<Integer> subscriber = new TestSubscriber<>();
-     oi.subscribe(subscriber);
+    Flowable<Integer> oi = Flowable.fromIterable(Arrays.asList(1, 2));
+    TestSubscriber<Integer> subscriber = new TestSubscriber<>();
+    oi.subscribe(subscriber);
 
-     subscriber.assertValues(1, 2);
-     subscriber.assertValueCount(2);
-     subscriber.assertComplete().assertNoErrors();
+    subscriber.assertValues(1, 2);
+    subscriber.assertValueCount(2);
+    subscriber.assertComplete().assertNoErrors();
   } 
 ```
 No ínicio, cria-se uma variável "oi" do tipo Flowable, na qual um Observable está emitindo alguma quantidade de dados: um vetor de inteiros com os elementos 1 e 2. Em seguida, cria uma instância de TestSubscriber, atribui à variável "subscriber" e a invoca em "oi". Posteriormente, testa se os valores 1 e 2 estão presentes em "subscriber" através da função assertValues(), que retornará verdadeiro. Depois, testa se este objeto contém exatamente dois elementos, sendo esta afirmação verdade. Por fim, verifica se o evento foi concluído sem a presença de erros, o que também é verdadeiro.
@@ -308,13 +308,13 @@ A classe WrapperTest.java é responsável por Wrapper.java. Nesta classe, temos 
 ```java
 @Test
   public void testHasMethod() throws Exception {
-      Wrapper w = Wrapper.getWrapper(I1.class);
-      Assertions.assertTrue(w.hasMethod("setName"));
-      Assertions.assertTrue(w.hasMethod("hello"));
-      Assertions.assertTrue(w.hasMethod("showInt"));
-      Assertions.assertTrue(w.hasMethod("getFloat"));
-      Assertions.assertTrue(w.hasMethod("setFloat"));
-      Assertions.assertFalse(w.hasMethod("setFloatXXX"));
+    Wrapper w = Wrapper.getWrapper(I1.class);
+    Assertions.assertTrue(w.hasMethod("setName"));
+    Assertions.assertTrue(w.hasMethod("hello"));
+    Assertions.assertTrue(w.hasMethod("showInt"));
+    Assertions.assertTrue(w.hasMethod("getFloat"));
+    Assertions.assertTrue(w.hasMethod("setFloat"));
+    Assertions.assertFalse(w.hasMethod("setFloatXXX"));
   }
 ```
  Observe que o método cria uma variável "w" do tipo Wrapper, objeto este capaz de ler e gravar os atributos de uma instância da classe "I1", bem como as suas funcionalidades. Então, realiza-se os testes através de comandos assertTrue() e assertFalse(). O primeiro irá constatar a existência do método na classe I1, por sua vez, o segundo assegura a ausência do método. Neste cenário temos que as funções setName(), hello(), showInt(), getFloat() e setFloat() estão implementadas, contudo, o método setFloatXXX() não pertence a classe analisada.
@@ -326,27 +326,44 @@ A classe StatusTest.java é responsável por Status.java. Nesta classe, temos o 
 ```java
 @Test
   public void testConstructor1() throws Exception {
-      Status status = new Status(OK, "message", "description");
-      assertThat(status.getLevel(), is(OK));
-      assertThat(status.getMessage(), equalTo("message"));
-      assertThat(status.getDescription(), equalTo("description"));
+    Status status = new Status(OK, "message", "description");
+    assertThat(status.getLevel(), is(OK));
+    assertThat(status.getMessage(), equalTo("message"));
+    assertThat(status.getDescription(), equalTo("description"));
   }
 ```
 Veja que uma instância da classe Status é criada e atribuida à variável "status". Além disso, note que são três os parâmetros de inicialização: "OK", "message" e "description". Logo, o método de teste visa assegurar que estes parâmetros são válidos através das chamadas de assertThat(). Inicialmente, valida se o primeiro parâmetro passado corresponde ao nível "OK", o que é verdade. Em seguida, confere se o segundo parãmetro é a palavra "message", o teste passa. Por fim, analisa se o texto do terceiro parâmento é a palavra "description", o que também é verdadeiro. Como os testes passam, pode-se inferir que o construtor foi inicializado corretamente.
 
- #### Método test() da classe [GenericEventTest.java](https://github.com/apache/dubbo/blob/master/dubbo-common/src/test/java/org/apache/dubbo/event/GenericEventTest.java)
+#### Método test() da classe [GenericEventTest.java](https://github.com/apache/dubbo/blob/master/dubbo-common/src/test/java/org/apache/dubbo/event/GenericEventTest.java)
 
 A classe GenericEventTest.java é responsável por GenericEvent.java. Nesta classe, temos o método test() que testa se um evento genérico foi inicializado anteriormente. O teste desse método é o seguinte:
 
 ```java
 @Test
   public void test() {
+    long timestamp = System.currentTimeMillis();
+    GenericEvent<String> event = new GenericEvent("Hello,World");
 
-      long timestamp = System.currentTimeMillis();
-      GenericEvent<String> event = new GenericEvent("Hello,World");
-
-      assertEquals("Hello,World", event.getSource());
-      assertTrue(event.getTimestamp() >= timestamp);
+    assertEquals("Hello,World", event.getSource());
+    assertTrue(event.getTimestamp() >= timestamp);
   }
 ```
 A váriavel "timestamp" do tipo long é inicializada com a hora atual em milissegundos. Em seguida, uma instância do objeto GenericEvent(), com o construtor recebendo a palavra "Hello,World", é armazenada na variável "event", uma string do tipo GenericEvent. Então, o método testa se o conteúdo de "event", usando a função getSource(), é a string "Hello,World" e assegura que a data de momento é maior que a data de criação do evento genérico, comparando a função getTimestamp() de "event" com a variável "timestamp". Ambos os testes passam.
+
+#### Método testAuthenticateRequestNoSignature() da classe [AccessKeyAuthenticatorTest.java](https://github.com/apache/dubbo/blob/master/dubbo-plugin/dubbo-auth/src/test/java/org/apache/dubbo/auth/AccessKeyAuthenticatorTest.java)
+
+A classe AccessKeyAuthenticatorTest.java é responsável por AccessKeyAuthenticator.java. Nesta classe, temos o método testAuthenticateRequestNoSignature() que testa se uma solicitação de autenticação sem assinatura prévia. O teste desse método é o seguinte:
+
+```java
+@Test
+  void testAuthenticateRequestNoSignature() {
+    URL url = URL.valueOf("dubbo://10.10.10.10:2181")
+            .addParameter(Constants.ACCESS_KEY_ID_KEY, "ak")
+            .addParameter(CommonConstants.APPLICATION_KEY, "test")
+            .addParameter(Constants.SECRET_ACCESS_KEY_KEY, "sk");
+    Invocation invocation = new RpcInvocation();
+    AccessKeyAuthenticator helper = new AccessKeyAuthenticator();
+    assertThrows(RpcAuthenticationException.class, () -> helper.authenticate(invocation, url));
+  }
+```
+Logo no início, a váriavel "url" do tipo URL é inicializada com o endereço "dubbo://10.10.10.10:2181". Além disso, atribui os parâmetros "ak" para a variável global ACCESS_KEY_ID_KEY, "test" para APPLICATION_KEY e "sk" para SECRET_ACCESS_KEY_KEY, ou seja, dá permissão de acesso ao endereço da url sem a necessidade de autenticação. Posteriormente, uma instância da classe RpcInvocation() é armazenada na variável "invocation" e uma instância de AccessKeyAuthenticator() em "helper". Com isso, através da função assertThrows(), o método testa se a exceção foi lançada para o objeto "helper", que fora atutenticado.
