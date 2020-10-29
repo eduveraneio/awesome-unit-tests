@@ -262,7 +262,7 @@ A classe VisibilityTest.java é responsável por Visibility.java. Nesta classe, 
 ```
 Observe que, a chamada da função driver.get() abre automaticamente a página de conteúdo javascript "javascriptPage". Com a página aberta inicia-se quatro testes utilizando o comando assertThat(). No primeiro, localiza-se o elemento de identificador "displayed" e verifica se ele está visível para o usuário. No segundo, confirma que o elemento de id "none" está oculto na página. Da mesma maneira, para o terceiro e quarto testes, é analisado se os elementos "suppressedParagraph" e "hidden", respectivamente, estão ocultos para o usuário final. Como a página pertence a estrutura do framework todos os testes devem passar.
 
-#### Método testCanClickOnAnElementWithTopSetToANegativeNumber() da classe [ClickTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/VisibilityTest.java)
+#### Método testCanClickOnAnElementWithTopSetToANegativeNumber() da classe [ClickTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/ClickTest.java)
 
 A classe ClickTest.java é responsável por Click.java. Nesta classe, temos o método testCanClickOnAnElementWithTopSetToANegativeNumber() que testa se um elemento da página foi acionado (clicado) pelo usuário final. O teste desse método é o seguinte:
 
@@ -279,4 +279,20 @@ A classe ClickTest.java é responsável por Click.java. Nesta classe, temos o m�
     assertThat(log).isEqualTo("click");
   }
 ```
-Inicialmente, atribui-se à variável "page" o caminho de "styledPage.html". Em seguida, esta página é aberta pela função driver.get(). Depois, localiza-se o elemento de nome "searchBox" e o atribui à variável "searchBox", um WebElement. Após, escreve automaticamente neste elemento a palavra "Cheese", usando a função sendKeys(). Então, o método procura pelo elemento de nome "btn" e o aciona através do evento click(). Para validar esta operação, o texto do elemento de id "log" é armazenado na variável "log", do tipo String. Dessa forma, usa-se a função assertThat() para assegurar que seu conteúdo é a palavra "click", referente à ação proposta.
+Inicialmente, atribui-se à variável "page" o caminho de "styledPage.html". Em seguida, esta página é aberta pela função driver.get(). Depois, localiza-se o elemento de nome "searchBox" e o atribui à variável "searchBox", um WebElement. Após, escreve automaticamente neste elemento a palavra "Cheese", usando a função sendKeys(). Então, o método procura pelo elemento de nome "btn" e o aciona através do evento click(). Para validar esta operação, o texto do elemento de id "log" é armazenado na variável "log", do tipo String. Dessa forma, usa-se a função assertThat() para assegurar que seu conteúdo é a palavra "click", referente à ação propositada.
+
+#### Método testShouldBeAbleToCallFunctionsDefinedOnThePage() da classe [ExecutingJavascriptTest.java](https://github.com/SeleniumHQ/selenium/blob/trunk/java/client/test/org/openqa/selenium/ExecutingJavascriptTest.java)
+
+A classe ExecutingJavascriptTest.java é responsável por ExecutingJavascript.java. Nesta classe, temos o método testShouldBeAbleToCallFunctionsDefinedOnThePage() que testa se uma função definida na página é executada. O teste desse método é o seguinte:
+
+```java
+@Test
+  public void testShouldBeAbleToCallFunctionsDefinedOnThePage() {
+    driver.get(pages.javascriptPage);
+    executeScript("displayMessage('I like cheese');");
+    String text = driver.findElement(By.id("result")).getText();
+
+    assertThat(text.trim()).isEqualTo("I like cheese");
+  }
+```
+Note que, um navegador web é aberto pela função driver.get() com o conteúdo da página "javascriptPage". Posteriormente, através do comando executeScript(), a função displayMessage() é chamada passando como parâmetro o texto "I like cheese". Em seguida, armazena na variável "text", do tipo String, o conteúdo do elemento de identificador "result", que contém o valor parametrizado. Por fim, utiliza a função assertThat() para assegurar que o texto presente em "text" é exatamente igual ao valor passado como parâmento na função, ou seja, que ela foi executada e que retornou o valor esperado.
