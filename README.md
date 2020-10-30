@@ -7,11 +7,6 @@
   <a href="https://github.com/eduveraneio/awesome-unit-tests/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/eduveraneio/awesome-unit-tests">
   </a>
-    
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-   <a href="https://github.com/eduveraneio/awesome-unit-tests/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/eduveraneio/awesome-unit-tests?style=social">
-  </a>
 
   <a href="https://twitter.com/edupoliveira">
     <img alt="Feito pelo Eduardo" src="https://img.shields.io/badge/feito%20por-Eduardo-%237519C1">
