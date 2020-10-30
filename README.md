@@ -10,7 +10,7 @@
 
   <a href="https://twitter.com/edupoliveira">
     <img alt="Feito pelo Eduardo" src="https://img.shields.io/badge/feito%20por-Eduardo-%237519C1">
-  </a> 
+  </a>
 </p>
 <h1 align="center">
     <img alt="awesome-unit-tests" title="#awesome-unit-tests" src="https://assets.codegrip.tech/wp-content/uploads/2019/10/04113325/1_Y07KF-_laqG2cJ1Squ0Bag.png" width="100%" />
@@ -21,14 +21,14 @@
 </h4>
 
 <p align="center">
- [Sobre](./#secao) •
- [Estrutura](./#estrutura) •
- [Tecnologias](./#tecnologias) •
- [Autores](./#autores) •
- [Versões](./#versoes) •
+ <a href="#-sobre-o-repositório">Sobre</a> •
+ <a href="#-estrutura-do-repositório">Estrutura</a> • 
+ <a href="#-tecnologias">Tecnologias</a> • 
+ <a href="#-autores">Autores</a> • 
+ <a href="#-versões-do-readme">Versões</a>
 </p>
 
-## <a name="sobre"><a/>💻 Sobre o repositório
+## 💻 Sobre o repositório
 
 ♻️ Awesome Unit Tests - é um repositório piloto com exemplos práticos de testes de unidade. O objetivo é estimular estudantes e desenvolvedores acerca das boas práticas de programação, apresentando-lhes exemplos concretos e relevantes de testes de unidade, com fácil acesso e localização.
 
@@ -36,7 +36,7 @@ Este projeto foi elaborado durante trabalho de conclusão de curso por **Eduardo
 
 ---
 
-## <a name="estrutura"><a/>🚀 Estrutura do repositório
+## 🚀 Estrutura do repositório
 
 Este repositório é dividido em duas partes:
 1. Projetos ([Projects](https://github.com/eduveraneio/awesome-unit-tests/projects)) 
@@ -47,13 +47,13 @@ No primeiro, temos o nome do projeto, link e uma breve descrição. No segundo, 
 
 ---
 
-## <a name="tecnologias"><a/> 🛠 Tecnologias
+## 🛠 Tecnologias
 
 Testes de unidade com linguagem de programação JAVA foram extraídos para compor o repositório.
 
 ---
 
-## <a name="autores"><a/> 🦸 Autores
+## 🦸 Autor e Co-Autor
 
 <table>
   <tr>
@@ -79,6 +79,6 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
 
 ---
 
-## <a name="versoes"><a/>Versões do README
+##  Versões do README
 
 [Português 🇧🇷](./README.md) 
