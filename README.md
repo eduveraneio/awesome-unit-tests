@@ -21,14 +21,14 @@
 </h4>
 
 <p align="center">
- <a href="#-sobre-o-repositório">Sobre</a> •
- <a href="#-estrutura-do-repositório">Estrutura</a> • 
- <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-autores">Autores</a> • 
- <a href="#-autores">Versões</a>
+ [Sobre](#secao) •
+ [Estrutura](#estrutura) •
+ [Tecnologias](#tecnologias) •
+ [Autores](#autores) •
+ [Versões](#versos) •
 </p>
 
-## 💻 Sobre o repositório
+## <a name="sobre"><a/>💻 Sobre o repositório
 
 ♻️ Awesome Unit Tests - é um repositório piloto com exemplos práticos de testes de unidade. O objetivo é estimular estudantes e desenvolvedores acerca das boas práticas de programação, apresentando-lhes exemplos concretos e relevantes de testes de unidade, com fácil acesso e localização.
 
@@ -36,7 +36,7 @@ Este projeto foi elaborado durante trabalho de conclusão de curso por **Eduardo
 
 ---
 
-## 🚀 Estrutura do repositório
+## <a name="estrutura"><a/>🚀 Estrutura do repositório
 
 Este repositório é dividido em duas partes:
 1. Projetos ([Projects](https://github.com/eduveraneio/awesome-unit-tests/projects)) 
@@ -47,13 +47,13 @@ No primeiro, temos o nome do projeto, link e uma breve descrição. No segundo, 
 
 ---
 
-## 🛠 Tecnologias
+## <a name="tecnologias"><a/> 🛠 Tecnologias
 
 Testes de unidade com linguagem de programação JAVA foram extraídos para compor o repositório.
 
 ---
 
-## 🦸 Autor e Co-Autor
+## <a name="autores"><a/> 🦸 Autores
 
 <table>
   <tr>
@@ -79,6 +79,6 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
 
 ---
 
-##  Versões do README
+## <a name="versoes"><a/>Versões do README
 
 [Português 🇧🇷](./README.md) 
