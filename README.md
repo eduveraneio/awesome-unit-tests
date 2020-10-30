@@ -35,8 +35,8 @@
 </h4>
 
 <p align="center">
- <a href="#-sobre-o-repositorio">Sobre</a> •
- <a href="#-estrutura-do-repositorio">Estrutura</a> • 
+ <a href="#-sobre-o-repositório">Sobre</a> •
+ <a href="#-estrutura-do-repositório">Estrutura</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autores</a> • 
  <a href="#user-content--licença">Licença</a>
