@@ -39,7 +39,7 @@
  <a href="#-estrutura-do-repositório">Estrutura</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autores</a> • 
- <a href="#user-content--licença">Licença</a>
+ <a href="#-versões-do-readme">Versões</a>
 </p>
 
 ## 💻 Sobre o repositório
@@ -89,14 +89,6 @@ Projetos implementados com linguagem de programação JAVA foram pesquisados par
     </td>
   </tr>
 </table>
-
----
-
-## 📝 Licença
-
-Este projeto esta sobe a licença [MIT](./LICENSE).
-
-Feito por Eduardo Oliveira [Entre em contato.](https://www.linkedin.com/in/edupoliveira/)
 
 ---
 
