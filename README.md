@@ -38,7 +38,7 @@
  <a href="#-sobre-o-repositorio">Sobre</a> •
  <a href="#-estrutura-do-repositorio">Estrutura</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-autor">Autores</a> • 
+ <a href="#-autores">Autores</a> • 
  <a href="#user-content--licença">Licença</a>
 </p>
 
@@ -74,11 +74,8 @@ Projetos implementados com linguagem de programação JAVA foram pesquisados par
     <td align="center">
       <a href="https://github.com/edupoliveira">
   <img style="border-radius: 50%;" src="https://avatars1.githubusercontent.com/u/23002069?s=460&u=d10946d43adf2ebc07f85448f313e352dbb2ac72&v=4" width="100px;" alt=""/>
-  <br />
-  <sub><b>Eduardo Oliveira</b></sub>
+  <br /><sub><b>Eduardo Oliveira</b></sub>
   </a> 
-  <a href="https://github.com/edupoliveira" title="Eduardo">🚀</a>
-  <br />
 
   [![Twitter Badge](https://img.shields.io/badge/-@edupoliveira-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/edupoliveira)](https://twitter.com/edupoliveira) 
   [![Gmail Badge](https://img.shields.io/badge/-eduveraneio@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:eduveraneio@gmail.com)](mailto:eduveraneio@gmail.com)
@@ -86,10 +83,7 @@ Projetos implementados com linguagem de programação JAVA foram pesquisados par
     <td align="center">
       <a href="http://aserg.labsoft.dcc.ufmg.br/">
         <img style="border-radius: 50%;" src="https://avatars3.githubusercontent.com/u/213200?s=460&u=c2b5074042aa87fb9561108f95dfc04abcd646b1&v=4" width="100px;" alt=""/><br /><sub><b>Marco Túlio</b></sub>
-      </a>
-      <a href="http://aserg.labsoft.dcc.ufmg.br/" title="Marco Túlio">👨‍🚀</a>
-      <br />
-
+      </a><br />
 [![Twitter Badge](https://img.shields.io/badge/-@mtov-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/mtov)](https://twitter.com/mtov)
 [![Gmail Badge](https://img.shields.io/badge/-mtvalente@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:mtvalente@gmail.com)](mailto:mtvalente@gmail.com)
     </td>
