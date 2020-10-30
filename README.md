@@ -71,9 +71,9 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
 
 <table>
   <tr>
-    <td align="center">
+    <td align="center" style="padding-top:15px">
       <a href="https://github.com/edupoliveira">
-  <img style="padding:10px; margin-top:50px" src="https://avatars1.githubusercontent.com/u/23002069?s=460&u=d10946d43adf2ebc07f85448f313e352dbb2ac72&v=4" width="100px;" alt=""/>
+  <img src="https://avatars1.githubusercontent.com/u/23002069?s=460&u=d10946d43adf2ebc07f85448f313e352dbb2ac72&v=4" width="100px;" alt=""/>
   <br /><sub><b>Eduardo Oliveira</b></sub>
   </a> 
 
@@ -82,7 +82,7 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
     </td>
     <td align="center">
       <a href="http://aserg.labsoft.dcc.ufmg.br/">
-        <img style="padding:10px" src="https://avatars3.githubusercontent.com/u/213200?s=460&u=c2b5074042aa87fb9561108f95dfc04abcd646b1&v=4" width="100px;" alt=""/><br /><sub><b>Marco Túlio</b></sub>
+        <img src="https://avatars3.githubusercontent.com/u/213200?s=460&u=c2b5074042aa87fb9561108f95dfc04abcd646b1&v=4" width="100px;" alt=""/><br /><sub><b>Marco Túlio</b></sub>
       </a><br />
 [![Twitter Badge](https://img.shields.io/badge/-@mtov-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/mtov)](https://twitter.com/mtov)
 [![Gmail Badge](https://img.shields.io/badge/-mtvalente@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:mtvalente@gmail.com)](mailto:mtvalente@gmail.com)
