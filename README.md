@@ -42,7 +42,7 @@
  <a href="#user-content--licença">Licença</a>
 </p>
 
-## 💻 Sobre o repositorio
+## 💻 Sobre o repositório
 
 ♻️ Awesome Unit Tests - é um repositório piloto com exemplos práticos de testes de unidade. O objetivo é estimular estudantes e desenvolvedores acerca das boas práticas de programação, apresentando-lhes exemplos concretos e relevantes de testes de unidade, com fácil acesso e localização.
 
@@ -50,7 +50,7 @@ Este projeto foi elaborado durante trabalho de conclusão de curso por **Eduardo
 
 ---
 
-## 🚀 Estrutura do repositorio
+## 🚀 Estrutura do repositório
 
 Este repositório é dividido em duas partes:
 1. Projetos ([Project](https://github.com/eduveraneio/awesome-unit-tests/projects)) 
