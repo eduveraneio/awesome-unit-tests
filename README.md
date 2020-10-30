@@ -57,7 +57,7 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
 <table>
   <tr>
     <td align="center">
-      <a href="https://linkedin.com/edupoliveira">
+      <a href="https://www.linkedin.com/in/edupoliveira/">
       <br />
   <img src="https://avatars1.githubusercontent.com/u/23002069?u=d10946d43adf2ebc07f85448f313e352dbb2ac72&v=4" width="100px;" alt=""/>
   <br /><sub><b>Eduardo Oliveira</b></sub>
