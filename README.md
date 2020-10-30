@@ -73,7 +73,7 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
   <tr>
     <td align="center">
       <a href="https://github.com/edupoliveira">
-  <img style="padding:10px; margin-top:10px" src="https://avatars1.githubusercontent.com/u/23002069?s=460&u=d10946d43adf2ebc07f85448f313e352dbb2ac72&v=4" width="100px;" alt=""/>
+  <img style="padding:10px; margin-top:50px" src="https://avatars1.githubusercontent.com/u/23002069?s=460&u=d10946d43adf2ebc07f85448f313e352dbb2ac72&v=4" width="100px;" alt=""/>
   <br /><sub><b>Eduardo Oliveira</b></sub>
   </a> 
 
