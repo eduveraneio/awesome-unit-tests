@@ -34,7 +34,7 @@
  <a href="#-estrutura-do-repositório">Estrutura</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autores</a> • 
- <a href="#-versões-do-readme">Versões</a>
+ <a href="#-versões-do-README">Versões</a>
 </p>
 
 ## 💻 Sobre o repositório
@@ -62,7 +62,7 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
 
 ---
 
-## 🦸 Autores
+## 🦸 Autor e Co-Autor
 
 <table>
   <tr>
