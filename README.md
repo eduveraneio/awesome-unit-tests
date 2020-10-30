@@ -21,11 +21,11 @@
 </h4>
 
 <p align="center">
- [Sobre](#secao) •
- [Estrutura](#estrutura) •
- [Tecnologias](#tecnologias) •
- [Autores](#autores) •
- [Versões](#versos) •
+ [Sobre](./#secao) •
+ [Estrutura](./#estrutura) •
+ [Tecnologias](./#tecnologias) •
+ [Autores](./#autores) •
+ [Versões](./#versoes) •
 </p>
 
 ## <a name="sobre"><a/>💻 Sobre o repositório
