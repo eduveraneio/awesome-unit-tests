@@ -53,7 +53,7 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
 
 ---
 
-## 🦸 Autor e Co-Autor
+## 🦸 Autores
 
 <table>
   <tr>
