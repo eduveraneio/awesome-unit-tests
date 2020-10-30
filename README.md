@@ -57,7 +57,7 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/edupoliveira">
+      <a href="https://linkedin.com/edupoliveira">
       <br />
   <img src="https://avatars1.githubusercontent.com/u/23002069?u=d10946d43adf2ebc07f85448f313e352dbb2ac72&v=4" width="100px;" alt=""/>
   <br /><sub><b>Eduardo Oliveira</b></sub>
@@ -67,7 +67,7 @@ Testes de unidade com linguagem de programação JAVA foram extraídos para comp
   [![Gmail Badge](https://img.shields.io/badge/-eduveraneio@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:eduveraneio@gmail.com)](mailto:eduveraneio@gmail.com)
     </td>
     <td align="center">
-      <a href="http://aserg.labsoft.dcc.ufmg.br/">
+      <a href="https://homepages.dcc.ufmg.br/~mtov/">
         <img src="https://avatars3.githubusercontent.com/u/213200?u=c2b5074042aa87fb9561108f95dfc04abcd646b1&v=4" width="100px;" alt=""/><br /><sub><b>Marco Túlio</b></sub>
       </a><br />
 [![Twitter Badge](https://img.shields.io/badge/-@mtov-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/mtov)](https://twitter.com/mtov)
