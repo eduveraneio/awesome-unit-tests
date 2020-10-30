@@ -21,10 +21,10 @@
 </h4>
 
 <p align="center">
- <a href="#-sobre-o-repositório">Sobre</a> •
- <a href="#-estrutura-do-repositório">Estrutura</a> • 
- <a href="#-tecnologias">Tecnologias</a> • 
- <a href="#-autores">Autores</a> • 
+ <a href="#-sobre-o-repositório">Sobre</a> |
+ <a href="#-estrutura-do-repositório">Estrutura</a> | 
+ <a href="#-tecnologias">Tecnologias</a> | 
+ <a href="#-autores">Autores</a> | 
  <a href="#-versões-do-readme">Versões</a>
 </p>
 
@@ -32,7 +32,7 @@
 
 ♻️ Awesome Unit Tests - é um repositório piloto com exemplos práticos de testes de unidade. O objetivo é estimular estudantes e desenvolvedores acerca das boas práticas de programação, apresentando-lhes exemplos concretos e relevantes de testes de unidade, com fácil acesso e localização.
 
-Este projeto foi elaborado durante trabalho de conclusão de curso por **Eduardo Oliveira** na Universidade Federal de Minas Gerais - [UFMG](https://ufmg.br), em outubro de 2020.
+Este projeto foi elaborado durante trabalho de conclusão de curso por **Eduardo Oliveira** na [Universidade Federal de Minas Gerais (UFMG)](https://ufmg.br), em outubro de 2020.
 
 ---
 
