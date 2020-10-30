@@ -10,16 +10,7 @@
 
   <a href="https://twitter.com/edupoliveira">
     <img alt="Feito pelo Eduardo" src="https://img.shields.io/badge/feito%20por-Eduardo-%237519C1">
-  </a>
-  
-  <!--<a href="https://facebook.com/edupoliveira">
-    <img alt="Stargazers" src="https://img.shields.io/badge/Facebook-Eduardo-%237159c1?style=flat&logo=ghost">
-  </a>
-  
-  <a href="https://www.twitter.com/edupoliveira/">
-    <img alt="Siga no Twitter" src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%2Feduveraneio%2Fawesome-unit-tests">
-  </a>-->
- 
+  </a> 
 </p>
 <h1 align="center">
     <img alt="awesome-unit-tests" title="#awesome-unit-tests" src="https://assets.codegrip.tech/wp-content/uploads/2019/10/04113325/1_Y07KF-_laqG2cJ1Squ0Bag.png" width="100%" />
@@ -34,7 +25,7 @@
  <a href="#-estrutura-do-repositório">Estrutura</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autores">Autores</a> • 
- <a href="#-versões-do-README">Versões</a>
+ <a href="#-autores">Versões</a>
 </p>
 
 ## 💻 Sobre o repositório
